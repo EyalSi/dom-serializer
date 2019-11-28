@@ -46,12 +46,8 @@ function formatAttrs(attributes, opts) {
     }
     output += key;
     if ((value !== null && value !== '') || opts.xmlMode) {
-      output +=
-        '="' +
-        (opts.decodeEntities
-          ? entities.encodeXML(value)
-          : value.replace(/\"/g, '&quot;')) +
-        '"';
+      var quoteType = value.indexOf('"' > -1) ? "'" : '"';
+      output += '=' + quoteType + (opts.decodeEntities ? entities.encodeXML(value) : value) + quoteType;
     }
   }
 
