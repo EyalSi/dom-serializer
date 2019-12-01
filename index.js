@@ -47,8 +47,6 @@ function formatAttrs(attributes, opts) {
     output += key;
     if ((value !== null && value !== '') || opts.xmlMode) {
       var quoteType = value.indexOf('"' > -1) ? "'" : '"';
-      quoteType = "X";
-      console.log('Value:'+value);
       output += '=' + quoteType + value + quoteType;
     }
   }
